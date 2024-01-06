@@ -15,7 +15,7 @@ class Game:
         self.background = GameObject(0, 0, self.width, self.height,'assets/background.png')
         self.treasure = GameObject(375, 50, 50, 50,'assets/treasure.png')
 
-        self.player = Player(375, 700, 50, 50, 'assets/player.png', 1)
+        self.player = Player(375, 700, 50, 50, 'assets/player.png', 5)
     
 
     def draw_objects(self,):
@@ -43,7 +43,7 @@ class Game:
                         player_direction = 0
             
 
-            self.player.move(player_direction)
+            self.player.move(player_direction, self.height)
            
             self.draw_objects()
 
