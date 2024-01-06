@@ -7,6 +7,8 @@ class Player(GameObject):
         
         self.speed = speed
 
+    # Moving the player character on the screen
     def move(self, direction):
         self.y += (direction * self.speed)
+        print(self.y)
     
