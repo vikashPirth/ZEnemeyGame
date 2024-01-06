@@ -1,6 +1,7 @@
 import pygame
 from gameObject import GameObject
 from player import Player
+from enemy import Enemy
 
 class Game:
 
@@ -16,14 +17,15 @@ class Game:
         self.treasure = GameObject(375, 50, 50, 50,'assets/treasure.png')
 
         self.player = Player(375, 700, 50, 50, 'assets/player.png', 5)
-    
+        self.enemy = Enemy(50, 600, 50, 50, 'assets/enemy.png',1)
 
     def draw_objects(self,):
         self.game_window.fill(self.white_color)
         self.game_window.blit(self.background.image, (self.background.x,self.background.y))
         self.game_window.blit(self.player.image, (self.player.x, self.player.y))
         self.game_window.blit(self.treasure.image, (self.treasure.x,self.treasure.y))
-    
+
+        self.game_window.blit(self.enemy.image, (self.enemy.x,self.enemy.y))
     
     def run_game_loop(self):
         player_direction = 0
@@ -44,6 +46,8 @@ class Game:
             
 
             self.player.move(player_direction, self.height)
+            self.enemy.move(self.width)
+            
            
             self.draw_objects()
 
