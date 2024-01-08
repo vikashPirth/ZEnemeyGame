@@ -9,9 +9,7 @@ class Player(GameObject):
 
     # Moving the player character on the screen
     def move(self, direction, max_height):
-        print(direction, self.y)
         if (self.y >= max_height - self.height and direction > 0) or (self.y == 0  and direction < 0):
             return
-        print(direction, self.y)
         self.y += (direction * self.speed)
     
